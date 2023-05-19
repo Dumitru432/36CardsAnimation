@@ -1,0 +1,52 @@
+/* aceste sunt niste comentarii personale pentru a intelege mai bine codul */
+
+.cards-container {
+  display: grid; /* grid- pentru a crea un layout de grila */
+  justify-content: center; /* centreaza grila pe orizontala */
+  grid-template-columns: repeat(6, 120px); /* defineste 6 coloane a cate 120px fiecare coloana */
+  grid-gap: 20px; /* spatiu dintre carduri */
+}
+.card {
+  width: 100px;
+  height: 150px;
+  perspective: 1000px; /* defineste perspectiva pentru transformarile 3d */
+  border-radius: 30px;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: 0.6s;
+  transform-style: preserve-3d;
+  
+
+}
+
+.card:hover .card-inner {
+  transform: rotateY(180deg); /* aceasta pseudo clasa se aplica cand cursorul se afla deasupra cardului */
+}
+
+.front-card,
+.back-card {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* webkit si backface ascund partea din spate a cartii in timpul transformarilor */
+  backface-visibility: hidden;
+}
+
+.front-card {
+  background-color: #bbb;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.back-card {
+  background-image: url(/images/pexels-photo-716398.webp);
+  background-size: cover;
+  transform: rotateY(180deg);
+}
